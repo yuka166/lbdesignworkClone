@@ -1,0 +1,225 @@
+:root {
+    --grey-color: rgba(255, 255, 255, 0.3);
+}
+
+html,
+body {
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--grey-color);
+    text-transform: uppercase;
+    font-size: 10rem;
+    font-weight: 900;
+    width: max-content;
+    letter-spacing: 70px;
+    line-height: 100%;
+    overflow: hidden;
+    display: flex;
+    transform: translate(35px, 0);
+}
+
+.text-outline>div {
+    transform: translate(0, 100%) rotate(-35deg);
+}
+
+.banner-content {
+    position: relative;
+    opacity: 0;
+    transition: opacity .25s;
+}
+
+.banner[data-status='active']>.banner-content {
+    opacity: 1;
+}
+
+.primary-text-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    opacity: 0;
+}
+
+.banner-primary-text {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    font-size: 4.5em;
+    text-align: center;
+}
+
+.banner-secondary-text {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+    opacity: 0;
+}
+
+.banner-action-btn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    opacity: 0;
+}
+
+.banner-action-btn>button::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: -5px;
+    width: 1px;
+    height: 100%;
+    background-color: #131313;
+    transition: all .5s;
+}
+
+.banner-action-btn>button::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 10px;
+    width: 100%;
+    height: 1px;
+    background-color: #131313;
+    transition: all .5s;
+}
+
+.banner-action-btn>button {
+    background-color: #131313;
+    outline: 0;
+    border: 0;
+    width: 150px;
+    height: 40px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+}
+
+.banner-action-btn>button:hover {
+    color: black;
+    background-color: white;
+}
+
+.banner-action-btn>button:hover::before {
+    height: 0;
+}
+
+.banner-action-btn>button:hover::after {
+    width: 0;
+}
+
+.banner-wrap {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 90px calc(100% - 180px) 90px;
+    grid-template-rows: 17% 69% 91px;
+    color: white;
+    position: absolute;
+    transition: opacity 1s;
+}
+
+.banner[data-index='1'] {
+    background: url('./images/background1.jpg') no-repeat;
+    background-size: cover;
+}
+
+.banner[data-index='2'] {
+    background: url('./images/background2.jpg') no-repeat;
+    background-size: cover;
+}
+
+.banner[data-index='3'] {
+    background: url('./images/background3.jpg') no-repeat;
+    background-size: cover;
+}
+
+.banner[data-status='active'] {
+    opacity: 1;
+    z-index: 2;
+    transition: none;
+}
+
+.banner[data-status='none'] {
+    opacity: 0;
+}
+
+.banner>div {
+    border-collapse: collapse;
+}
+
+.grid-btn {
+    grid-column: 1 / 4;
+    display: grid;
+    grid-template-columns: 90px calc(100% - 270px) 90px 90px;
+}
+
+.changeBtn>button {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    font-size: 22px;
+    color: white;
+    transition: all .3s;
+}
+
+.changeBtn>button:hover {
+    background-color: var(--grey-color);
+}
+
+.banner>div:nth-child(1),
+.banner>div:nth-child(4),
+.banner>div:nth-child(7)>div:nth-child(1) {
+    border-right: 1px solid var(--grey-color);
+}
+
+.banner>div:nth-child(7) {
+    border-top: 1px solid var(--grey-color);
+}
+
+.banner>div:nth-child(3),
+.banner>div:nth-child(6),
+.banner>div:nth-child(7)>div:nth-child(4) {
+    border-left: 1px solid var(--grey-color);
+}
+
+.social-list {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+}
+
+.social-list>div {
+    height: 25%;
+    text-transform: uppercase;
+}
+
+.social-list>div>div {
+    transform: rotate(-90deg);
+}
+
+.social-list>div,
+.changeBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
